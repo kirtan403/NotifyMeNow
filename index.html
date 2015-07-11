@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/NotifyMeNow.js"></script>
+
+
+<!--<script type="text/javascript" src="js/jquery.easing.js"></script>-->
+<script type="text/javascript">
+
+	$(document).ready(function(){	
+		$(window).load(function(){
+		
+		
+		$("#clickme").on("click",function(e){
+			e.preventDefault();
+			$("#NotifyMeNowContainer").NotifyMeNow("Hello World");
+		});
+		});
+	});
+		
+		
+</script>
+</head>
+<body>
+
+	<a id="clickme" href="" style="position:absolute; top:20%; left:48%;">Click Me</a>
+	<div id="NotifyMeNowContainer"></div>
+
+</body>
+</html>
