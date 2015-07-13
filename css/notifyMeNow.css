@@ -1,0 +1,28 @@
+.notifyMeNotification-container
+{
+	position:relative;
+	background-color:yellow;
+	color:black;
+	padding-left:10px;
+	padding-right:30px;
+	padding-top:4px;
+	padding-bottom:4px;
+	margin-top:1px;
+	margin-bottom:1px;
+	border-radius: 5px;
+	border:1px solid #E6E6E6;
+}
+
+.notifyMeNotification-container .notifyMeClose
+{
+	position:absolute;
+	right:4px;
+	top:1px;
+	font-size:20px;
+	color:#B5B5B5;
+}
+
+.notifyMeNotification-container .notifyMeClose:hover
+{
+	cursor:pointer;
+}

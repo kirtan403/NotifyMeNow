@@ -14,17 +14,29 @@ $(document).ready(function(){
 					$(this).css({
 						'position':'fixed',
 						'top':'0px',
-						'left':'0px'   //Initial Testing
+						'left':'45%'   //Initial Testing
 					});
+					
+					//Initialize Function
+					
+					//On Close hiding the notification
+					$(this).on("click",".notifyMeClose",function(){
+						$(this).parent(".notifyMeNotification-container").remove();
+					});
+					
 					// Set initialization to true after initialization is complete
 					initialization = true;
 				}
 				
 				//Create New Notification
-				var newNotification = '<div>'+param+'</div>';
+				var newNotification = '<div class="notifyMeNotification-container" style="">'+param+'<span class="notifyMeClose">&times;</div>';
 				$(this).append(newNotification);
 				
+				
+				
 			};
+			
+			
 			
 			
 			
