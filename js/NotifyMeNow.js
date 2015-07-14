@@ -4,6 +4,7 @@ $(document).ready(function(){
 	
 			//Initialization of the div to show the notifications, default false
 			var initialization = false;
+			var idCounter = 0;
 			
 			$.fn.NotifyMeNow = function(param){
 				
@@ -21,7 +22,13 @@ $(document).ready(function(){
 					
 					//On Close hiding the notification
 					$(this).on("click",".notifyMeClose",function(){
-						$(this).parent(".notifyMeNotification-container").remove();
+						var notification = $(this).parent(".notifyMeNotification-container");
+						notification.addClass("abcd");
+						setTimeout(function(){
+							notification.addClass("lol").slideUp(100,function(){
+								notification.remove()
+							});
+						},100);
 					});
 					
 					// Set initialization to true after initialization is complete
@@ -29,9 +36,9 @@ $(document).ready(function(){
 				}
 				
 				//Create New Notification
-				var newNotification = '<div class="notifyMeNotification-container" style="">'+param+'<span class="notifyMeClose">&times;</div>';
+				var newNotification = '<div class="notifyMeNotification-container" id="notifyMeNowNotification'+(++idCounter)+'">'+param+'<span class="notifyMeClose">&times;</div>';
 				$(this).append(newNotification);
-				
+				//$("#notifyMeNowNotification"+idCounter).addClass("abcd");
 				
 				
 			};
