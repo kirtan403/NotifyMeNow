@@ -23,7 +23,7 @@ $(document).ready(function(){
 					//On Close hiding the notification
 					$(this).on("click",".notifyMeClose",function(){
 						var notification = $(this).parent(".notifyMeNotification-container");
-						notification.addClass("abcd");
+						notification.addClass("exitAnimation");
 						setTimeout(function(){
 							notification.addClass("lol").slideUp(100,function(){
 								notification.remove()
@@ -38,7 +38,7 @@ $(document).ready(function(){
 				//Create New Notification
 				var newNotification = '<div class="notifyMeNotification-container" id="notifyMeNowNotification'+(++idCounter)+'">'+param+'<span class="notifyMeClose">&times;</div>';
 				$(this).append(newNotification);
-				//$("#notifyMeNowNotification"+idCounter).addClass("abcd");
+				
 				
 				
 			};
