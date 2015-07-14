@@ -38,7 +38,7 @@ $(document).ready(function(){
 				//Create New Notification
 				var newNotification = '<div class="notifyMeNotification-container" id="notifyMeNowNotification'+(++idCounter)+'">'+param+'<span class="notifyMeClose">&times;</div>';
 				$(this).append(newNotification);
-				
+				$("#notifyMeNowNotification"+idCounter).addClass("entryAnimation");
 				
 				
 			};

@@ -11,6 +11,7 @@
 	margin-bottom:1px;
 	border-radius: 5px;
 	border:1px solid #E6E6E6;
+	opacity:0;
 	
 	/* Disable User Selection */
 	user-select: none; 
@@ -34,6 +35,14 @@
 	cursor:pointer;
 }
 
+.entryAnimation
+{
+	animation-name: fadeIn;
+    animation-duration: 0.3s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
 .exitAnimation
 {
 	animation-name: fadeOut;
@@ -50,5 +59,15 @@
 	}
 	to {
 		opacity:0;
+	}
+}
+
+@keyframes fadeIn
+{
+	from {
+		opacity:0;
+	}
+	to {
+		opacity:1;
 	}
 }
