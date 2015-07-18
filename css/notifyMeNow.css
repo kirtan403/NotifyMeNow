@@ -9,9 +9,14 @@
 	padding-bottom:4px;
 	margin-top:1px;
 	margin-bottom:1px;
+	margin-left:auto;
+	margin-right:auto;
 	border-radius: 5px;
 	border:1px solid #E6E6E6;
 	opacity:0;
+	/*width:auto;*/
+	display:block;
+	max-width:80%;
 	
 	/* Disable User Selection */
 	user-select: none; 

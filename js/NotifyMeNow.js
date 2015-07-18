@@ -16,7 +16,9 @@ $(document).ready(function(){
 					$(this).css({
 						'position':'fixed',
 						'top':'0px',
-						'left':'45%'   //Initial Testing
+						'display':'inline-block',
+						'margin-left':'auto',
+						'margin-right':'auto'
 					});
 					
 					//Initialize Functions
@@ -26,24 +28,41 @@ $(document).ready(function(){
 						hideNotification($(this).parent(".notifyMeNotification-container"),0);
 					});
 					
+					//Set notification div to full width (100%) but set in pixel
+					var notifiationsContainer = $(this);
+					$(window).on("resize load",function(){
+						notifiationsContainer.width($(window).width());
+					});
+					
 					// Set initialization to true after initialization is complete
 					initialization = true;
+					
+					console.log("Initialization complete");
 				}
 				
 				//Create New Notification
-				var newNotification = '<div class="notifyMeNotification-container" id="notifyMeNowNotification'+(++idCounter)+'">'+param+'<span class="notifyMeClose">&times;</div>';
+				var newNotificationHTML = '<div class="notifyMeNotification-container" id="notifyMeNowNotification'+(++idCounter)+'">'+param+'<span class="notifyMeClose">&times;</div>';
 				
 				// Add the notification to notification container
-				$(this).append(newNotification);
+				$(this).append(newNotificationHTML);
+				
+				//Get the notification Object to work with
+				var notificationObj = $("#notifyMeNowNotification"+idCounter);
+				
+				//Set the fixed width
+				var width = getNotificationWidth(notificationObj)
+				notificationObj.css('width',width);
 				
 				//Add a entry Animation class to show the notification
-				$("#notifyMeNowNotification"+idCounter).addClass("entryAnimation");
+				notificationObj.addClass("entryAnimation");
 				
 				//Autohide notification call
-				hideNotification($("#notifyMeNowNotification"+idCounter),notificationTimeout);
+				hideNotification(notificationObj,notificationTimeout);
 				
 			};
 			
+			
+			// Function to hide notification
 			function hideNotification(notificationDiv,hideDelayTime)
 			{
 				// Calling setTimeout to hide notification after called delay time
@@ -60,6 +79,12 @@ $(document).ready(function(){
 				},hideDelayTime);
 			}
 			
+			// Function to calculate width of the notification div
+			function getNotificationWidth(notificationDiv)
+			{
+				var width = notificationDiv.width();
+				return width;
+			}
 			
 			
 		}( jQuery ));
